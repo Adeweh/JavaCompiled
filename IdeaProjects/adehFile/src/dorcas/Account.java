@@ -1,5 +1,7 @@
 package dorcas;
 
+import java.util.Scanner;
+
 public class Account {
     private int balance;
 
@@ -16,3 +18,4 @@ public class Account {
         }
     }
 }
+

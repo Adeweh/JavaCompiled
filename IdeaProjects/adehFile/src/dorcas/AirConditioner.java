@@ -23,7 +23,7 @@ public class AirConditioner {
             temperature = 30;
         }
         if (temperature < 16){
-            temperature = 16;
+           temperature = 16;
         }
     }
 
