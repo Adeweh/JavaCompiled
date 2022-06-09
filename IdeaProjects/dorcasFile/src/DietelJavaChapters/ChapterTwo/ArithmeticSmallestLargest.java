@@ -29,6 +29,7 @@ public class ArithmeticSmallestLargest {
 
         System.out.printf("Sum is: %d%n", sum);
         System.out.printf("Average is: %d%n", average);
+        System.out.printf("Product is: %d%n", product);
         System.out.printf("Largest is: %d%n", largest);
         System.out.printf("Smallest is: %d%n", smallest);
 

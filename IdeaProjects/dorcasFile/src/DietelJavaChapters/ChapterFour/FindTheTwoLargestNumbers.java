@@ -10,13 +10,18 @@ public class FindTheTwoLargestNumbers {
         int largest1 = 0;
         int largest2 = 0;
 
-        for (int i=0;i<=10;i++) {
+        System.out.print("Enter 10 integers: ");
 
-            System.out.printf("Enter 10 integers: ");
+
+        while (counter <= 10) {
+
             int number = userInput.nextInt();
 
-            if (counter >= 1)
+            if (number >= largest1){
+                largest2 = largest1;
                 largest1 = number;
+            }
+
             else if (number > largest2)
                 largest2 = number;
             counter++;

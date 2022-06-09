@@ -10,7 +10,7 @@ public class CheckerboardPatternAsterisks {
         System.out.print (" * * * * * * * *\n");
         System.out.print ("* * * * * * * *\n");
         System.out.print (" * * * * * * * *\n");
-        System.out.print ("* * * * * * * *\n");
+        System.out.println ("* * * * * * * *");
         System.out.print (" * * * * * * * *\n");
     }
     }

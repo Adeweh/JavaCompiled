@@ -21,9 +21,7 @@ public class FindTheLargestNumber {
             System.out.print("Enter an integer: ");
             int number = userInput.nextInt();
 
-            if (counter == 1)
-                largest = number;
-         else if (number > largest)
+         if (number > largest)
                     largest = number;
                 counter = counter + 1;
 

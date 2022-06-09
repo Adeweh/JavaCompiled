@@ -4,28 +4,39 @@ import java.util.Scanner;
 
 public class Palindromes {
     public static void main(String[] args) {
-        int number = 0;
+
+
         Scanner userInput = new Scanner(System.in);
-
-        while (number < 10000){
-
-        System.out.print("Enter a five digit number: ");
-        number = userInput.nextInt();
-
-        if (number < 10000)
-            System.out.println("Invalid number. Try again.\n ");
-    }
-        int reverseNumber = 0;
-
-        while (number > 0){
-            int rem = number % 10;
-            number /= 10;
-            reverseNumber = reverseNumber * 10 + rem;}
+        int rev = 0;
 
 
+        System.out.println("Enter a 5 digit number: ");
+
+        int number = userInput.nextInt();
+        int half = number / 2;
+
+        if (number / 10000 >= 1 && number / 100000 < 1){
+            while (number != 0){
+
+                int remainder = number % 10;
+                rev = rev * 10 + remainder;
+
+                number /= 10;
+
+            }
+            int halfRev = rev / 2;
+
+
+            if (half == halfRev) {
+                System.out.println("Number is a palindrome");
+            }else{
+                System.out.println("Number is not a palindrome");
+
+            }
 
         }
 
-
     }
 
+
+        }

@@ -1,0 +1,5 @@
+package DiaryTest;
+
+class DiaryMainTest {
+
+}
