@@ -11,8 +11,6 @@ public class DiaryMain {
         viewDiary();
         viewId();
 
-
-
     }
     private static void createDiary(){
 

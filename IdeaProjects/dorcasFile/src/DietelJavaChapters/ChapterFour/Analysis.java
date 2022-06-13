@@ -12,8 +12,10 @@ public class Analysis {
 
 
         while (studentCounter <= 10){
+
             System.out.println("Enter result (1 = pass, 2 = fail): ");
             int result = userInput.nextInt();
+
             while (result != 1 && result != 2) {
                 System.out.println("Enter result (1 = pass, 2 = fail): ");
                 result = userInput.nextInt();
@@ -21,6 +23,7 @@ public class Analysis {
 
             if (result == 1) {
                 passes = passes + 1;
+
             } else {
                 failures = failures + 1;
             }
