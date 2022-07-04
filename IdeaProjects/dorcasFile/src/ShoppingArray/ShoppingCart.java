@@ -12,7 +12,7 @@ public class ShoppingCart {
     }
     public void getAllItems(){
         for (int i = 0; i < cartItems.size(); i++) {
-            System.out.println(cartItems.get(i));
+            System.out.println(cartItems.get(i).toString());
         }
 
     }

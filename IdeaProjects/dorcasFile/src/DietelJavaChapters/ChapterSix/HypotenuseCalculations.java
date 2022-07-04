@@ -1,4 +1,4 @@
-package DietelJavaChapters.ChapterEight;
+package DietelJavaChapters.ChapterSix;
 
 public class HypotenuseCalculations {
     public static void main(String[] args) {
