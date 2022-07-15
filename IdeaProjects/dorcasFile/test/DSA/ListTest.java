@@ -64,13 +64,28 @@ public class ListTest {
     @Test
     public void addSixElement_capacityShouldDoubleTest(){
         assertEquals(5, list.capacity());
+
         list.add("Dorcas");
         list.add("Pearl");
         list.add("Bread");
         list.add("Eden");
         list.add("Babe");
-        list.add("Pearl");
+        list.add("Wonders");
+        list.add("Divine");
+      //  System.out.println(list.capacity());
         assertEquals(10, list.capacity());
+
+    }
+    @Test
+    public void testThatDuplicateItemsCountAsOne(){
+        list.add("Dorcas");
+        list.add("Dorcas");
+        list.add("Pearl");
+        list.add("Bread");
+
+        list.remove("Bread");
+
+        assertTrue(list.contains("Dorcas"));
 
     }
 

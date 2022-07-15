@@ -1,2 +1,5 @@
-package DI;public interface Walk {
+package DI;
+
+public interface Walk {
+    void walk();
 }

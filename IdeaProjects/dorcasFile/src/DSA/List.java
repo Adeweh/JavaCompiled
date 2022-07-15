@@ -14,4 +14,7 @@ public interface List {
 
 
     int capacity();
+
+
+    boolean contains(String item);
 }

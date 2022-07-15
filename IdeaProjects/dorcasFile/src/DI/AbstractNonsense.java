@@ -1,2 +1,8 @@
-package DI;public class AbstractNonsence {
+package DI;
+
+public  abstract class AbstractNonsense {
+    public void run(){
+        System.out.println("Nonsense language");
+    }
+
 }
