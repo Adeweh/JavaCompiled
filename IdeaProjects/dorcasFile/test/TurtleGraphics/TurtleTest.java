@@ -110,7 +110,7 @@ public class TurtleTest {
         ijapa.move(5, sc);
         ijapa.move(5, sc);
 
-        Position expectedPosition = new Position(0, 10);
+        Position expectedPosition = new Position(0, 8);
         //boolean result = expectedPosition.equals(new Position(0,5));
         // System.out.println(result);
 
@@ -129,13 +129,119 @@ public class TurtleTest {
         //boolean result = expectedPosition.equals(new Position(0,5));
         // System.out.println(result);
 
-        assertEquals(new Position(0, 5), ijapa.getCurrentPosition());
+        assertEquals(new Position(0, 4), ijapa.getCurrentPosition());
 
         //System.out.println(Arrays.deepToString(sc.getFloor()));
 
         int [][] floor = sc.getFloor();
         for (int i = currentColumn; i < currentColumn + 1; i++) {
             assertEquals(1, floor[currentRow][i]);
+        }
+
+        for (int i = 0; i < floor.length ; i++) {
+            System.out.println();
+            for (int j = 0; j < floor.length; j++) {
+                System.out.print(floor[i][j] + " ");
+
+            }
+
+        }
+
+
+    }
+    @Test
+    public void whenPenIsDown_TurtleCanWriteMovingSouth() {
+        assertSame(EAST, ijapa.getCurrentDirection());
+        ijapa.turnRight();
+        assertSame(SOUTH, ijapa.getCurrentDirection());
+
+        ijapa.penDown();
+        int currentColumn = ijapa.getCurrentPosition().getColumn();
+        int currentRow = ijapa.getCurrentPosition().getRow();
+
+        ijapa.move(5, sc);
+
+        //boolean result = expectedPosition.equals(new Position(0,5));
+        // System.out.println(result);
+
+        assertEquals(new Position(4, 0), ijapa.getCurrentPosition());
+
+        //System.out.println(Arrays.deepToString(sc.getFloor()));
+
+        int [][] floor = sc.getFloor();
+        for (int i = currentRow; i < currentRow + 1; i++) {
+            assertEquals(1, floor[1][currentColumn]);
+        }
+
+        for (int i = 0; i < floor.length ; i++) {
+            System.out.println();
+            for (int j = 0; j < floor.length; j++) {
+                System.out.print(floor[i][j] + " ");
+
+            }
+
+        }
+
+
+    }
+    @Test
+    public void whenPenIsDown_TurtleCanWriteMovingWest() {
+        assertSame(EAST, ijapa.getCurrentDirection());
+        ijapa.move(5,sc);
+
+        ijapa.turnRight();
+        ijapa.turnRight();
+        assertSame(WEST, ijapa.getCurrentDirection());
+
+        ijapa.penDown();
+        int currentColumn = ijapa.getCurrentPosition().getColumn();
+        int currentRow = ijapa.getCurrentPosition().getRow();
+
+        ijapa.move(5, sc);
+
+
+        assertEquals(new Position(0, 0), ijapa.getCurrentPosition());
+
+
+        int [][] floor = sc.getFloor();
+        for (int i = currentColumn; i > currentColumn - 1; i--) {
+            assertEquals(1, floor[currentRow][i]);
+        }
+
+        for (int i = 0; i < floor.length ; i++) {
+            System.out.println();
+            for (int j = 0; j < floor.length; j++) {
+                System.out.print(floor[i][j] + " ");
+
+            }
+
+        }
+
+
+    }
+    @Test
+    public void whenPenIsDown_TurtleCanWriteMovingNorth() {
+        assertSame(EAST, ijapa.getCurrentDirection());
+        ijapa.turnRight();
+        ijapa.move(5,sc);
+
+        ijapa.turnRight();
+        ijapa.turnRight();
+        assertSame(NORTH, ijapa.getCurrentDirection());
+
+        ijapa.penDown();
+        int currentColumn = ijapa.getCurrentPosition().getColumn();
+        int currentRow = ijapa.getCurrentPosition().getRow();
+
+        ijapa.move(5, sc);
+
+
+        assertEquals(new Position(0, 0), ijapa.getCurrentPosition());
+
+
+        int [][] floor = sc.getFloor();
+        for (int i = currentRow; i > currentRow - 1; i--) {
+            assertEquals(1, floor[i][currentColumn]);
         }
 
         for (int i = 0; i < floor.length ; i++) {

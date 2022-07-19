@@ -42,7 +42,8 @@ public class NokiaPrompts {
             case 6 -> settings();
             case 7 -> callDivert();
             case 8 -> games();
-            case 9 -> calculator(); case 10 -> reminder();
+            case 9 -> calculator();
+            case 10 -> reminder();
             case 11 -> clock();
             case 12 -> profiles();
             case 13 -> simServices();

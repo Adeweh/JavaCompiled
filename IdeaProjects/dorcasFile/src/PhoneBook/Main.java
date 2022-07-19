@@ -1,13 +1,14 @@
 package PhoneBook;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
     private static PhoneBook phoneBook = new PhoneBook();
-    private static final ArrayList<User> users = new ArrayList<>();
+    private static ArrayList<User> users = new ArrayList<>();
     private static final Scanner userInput = new Scanner(System.in);
     public static void main(String[] args) {
         introMenu();
@@ -49,7 +50,9 @@ public class Main {
         Contact entry = new Contact(name, number);
 
         System.out.println(entry.getPhoneNumber());
-        phoneBook.add(entry);
+        System.out.println("Contact successfully added");
+
+
         mainMenu();
 
     }
@@ -113,7 +116,8 @@ public class Main {
     }
     private static void mainMenu(){
         String prompt = """
-                Welcome!!;
+                
+                Welcome!!
                 1: Add contact
                 2: Delete contact
                 3: View contact
@@ -135,22 +139,33 @@ public class Main {
         }
     }
     private static void introMenu(){
-        String prompt = """
-                Dee's PhoneBook - Exceptional!!
-                1: Register as New user
-                2: Log in
-                0: exit
-                """;
-        System.out.println(prompt);
-        int number = userInput.nextInt();
-        userInput.nextLine();
+       try {
+            String prompt = """
+                                    
+                    Dee's PhoneBook - Exceptional!!
+                    1: Register as New user
+                    2: Log in
+                    0: exit
+                    """;
+            System.out.println(prompt);
+            int number = userInput.nextInt();
+            userInput.nextLine();
 
-        switch (number){
-            case 1 -> registrationPage();
-            case 2 -> loginPage();
-            case 3 -> System.exit(0);
+            switch (number) {
+                case 1 -> registrationPage();
+                case 2 -> loginPage();
+                case 0 -> System.exit(0);
+                default -> {
+                    System.out.println("Invalid Entry");
+                    introMenu();
+                }
 
-    }
+            }
+        } catch (InputMismatchException exception){
+           System.out.println("You are mad ni");
+           userInput.nextLine();
+           introMenu();
+       }
 }
 
     private static void registrationPage() {
@@ -163,14 +178,20 @@ public class Main {
         User newUser = new User(username, passWord);
         users.add(newUser);
 
-        mainMenu();
+        System.out.println("Successfully registered.\nKindly Login to access Page");
+
+        introMenu();
 
     }
 
     private static void loginPage() {
+        if(users.isEmpty()){
+            System.out.println("No users registered yet\n" +
+                    "Please register account");
+            introMenu();
+        }
         System.out.println("Enter Username");
         String username = userInput.nextLine();
-
         for (User user: users) {
             if (Objects.equals(user.getUserName(), username)) {
                 System.out.println("Enter Password");
@@ -178,6 +199,11 @@ public class Main {
                 if(user.checkPassWord(passWord)){
                     mainMenu();
                 }
+                else{
+                    System.out.println("Incorrect Password");
+                    introMenu();
+                }
+
             }
             else {
                 System.out.println("Username not found!");

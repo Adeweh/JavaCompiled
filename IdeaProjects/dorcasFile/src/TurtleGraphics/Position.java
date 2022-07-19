@@ -38,4 +38,8 @@ public class Position {
         this.column = numOfSteps;
 
     }
+
+    public void setRow(int noOfSteps) {
+        this.row = noOfSteps;
+    }
 }

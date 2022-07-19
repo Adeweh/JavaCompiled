@@ -80,18 +80,18 @@ public class Turtle {
                 }
             }
             case WEST -> {
-                for (int i = currentColumn; i > currentColumn + numOfSteps; i--) {
+                for (int i = currentColumn; i > currentColumn - numOfSteps; i--) {
                     floor[currentRow][i] = 1;
                 }
             }
             case SOUTH -> {
                 for (int i = currentRow; i < currentRow + numOfSteps; i++) {
-                    floor[currentRow][i] = 1;
+                    floor[i][currentColumn] = 1;
                 }
             }
             case NORTH -> {
-                for (int i = currentRow; i > currentRow + numOfSteps; i--) {
-                    floor[currentRow][i] = 1;
+                for (int i = currentRow; i > currentRow - numOfSteps; i--) {
+                    floor[i][currentColumn] = 1;
                 }
             }
         }
@@ -99,11 +99,25 @@ public class Turtle {
 
     private void move(int noOfSteps){
             switch (currentDirection){
-            case EAST, WEST, SOUTH, NORTH -> increaseColumnBy(noOfSteps);
+                case EAST -> increaseColumnBy(noOfSteps - 1);
+                case SOUTH -> increaseRowsBy(noOfSteps - 1) ;
+                case WEST -> increaseColumnBy(1 - noOfSteps);
+                case NORTH -> increaseRowsBy(1 - noOfSteps);
+
+           // case EAST, WEST, SOUTH, NORTH -> increaseColumnBy(noOfSteps);
 
         }
         }
+
+    private void increaseRowsBy(int noOfSteps) {
+        int currentRow = currentPosition.getRow();
+
+        currentPosition.setRow((noOfSteps+currentRow));
+
+    }
+
     private  void increaseColumnBy(int noOfSteps){
+
         int currentColumn = currentPosition.getColumn();
 
         currentPosition.setColumn((noOfSteps+currentColumn));

@@ -108,7 +108,7 @@ public class PhoneBookTest {
         Contact[] newContact = {contact, contact1, contact2, contact3};
 
 
-      //  System.out.println(phoneBook.getAllContacts());
+       // System.out.println(user.getAllContacts());
 
        assertArrayEquals(newContact, user.getAllContacts());
     }
