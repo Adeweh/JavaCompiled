@@ -1,4 +1,4 @@
-package IdeaProjects.dorcasFile.test.Regex;
+package Regex;
 
 import org.junit.jupiter.api.Test;
 
